@@ -11,7 +11,13 @@ library(titanic)
 library(caret)
 library(ROCR)
 
-tree(Survived ~ Age, titanic_train)
+miArbol <-tree(Survived ~ Age + Pclass, titanic_train)
+
+predict(miArbol, data=titanic_test)
+
+titanic_train <- titanic_train %>% filter(!is.na(Age))
+randomForest(Survived ~ Pclass + Age, titanic_train )
+
 
 
 

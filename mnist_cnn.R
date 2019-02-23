@@ -61,4 +61,6 @@ modelo_cnn %>% evaluate(x_test, y_test)
 
 result_xtest <- modelo %>%  predict_classes(x_test)
 
+modelo_cnn %>%  save_model_hdf5("modelo_cnn_base.h5")
 
+modelo_cnn2 <- load_model_hdf5("modelo_cnn_base.h5")
